@@ -8,5 +8,6 @@ namespace AlquilerVehiculos
 {
     internal class IGestionReservas
     {
+
     }
 }
