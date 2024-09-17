@@ -19,12 +19,67 @@ namespace AlquilerVehiculos
                 Console.WriteLine("Quien desea acceder\t" +
                                   "1. Administrador\t" +
                                   "2. Cliente\t");
-
                 opcion=int.Parse(Console.ReadLine());
 
 
                 switch (opcion) { 
-                
+                    case 1:
+                        do
+                        {
+                            Console.WriteLine("**SECCION ADMINISTRADOR\t" +
+                                "1. Agregar nuevos vehiculos\t" +
+                                "2. Actualizar vehiculos\t" +
+                                "3. Eliminar vehiculos\t" +
+                                "9. Volver al menu anterior\t");
+                            opcion=int.Parse(Console.ReadLine());
+                            switch (opcion)
+                            {
+                                case 1:
+                                    Console.WriteLine("agregar");
+                                break;
+                                case 2:
+                                    Console.WriteLine("actualizar vehiculo");
+                                break;
+                                case 3:
+                                    Console.WriteLine("eliminar vehiculo");
+                                    break;
+                                case 9:
+                                    Console.WriteLine("volviendo al menu anterior");
+                                    break;
+                                default:
+                                    Console.WriteLine("opcion no valida");
+                                    break;
+                            }
+                        } while (opcion!=9);
+
+                    break;
+                    case 2:
+                        do
+                        {
+                            Console.WriteLine("**SECCION CLIENTE\t" +
+                                "1. Reservar vehiculo\t" +
+                                "2. Devolver vehiculo\t" +
+                                "9. Volver al menu anterior\t");
+                            opcion=int.Parse(Console.ReadLine());
+                            switch (opcion)
+                            {
+                                case 1:
+                                    Console.WriteLine("reservar");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("devolver vehiculo");
+                                    break;
+                                case 9:
+                                    Console.WriteLine("volviendo al menu anterior");
+                                    break;
+                                default:
+                                    Console.WriteLine("opcion no valida");
+                                    break;
+                            }
+                        } while (opcion!=9);
+                        break;
+                    default:
+                    break;
                 }
             }while (opcion!=0);
         }
