@@ -12,7 +12,21 @@ namespace AlquilerVehiculos
     {
         public static void Main(string[] args)
         {
-            
+            Console.Write("****ALQUILER****");
+            int opcion = 0;
+            do
+            {
+                Console.WriteLine("Quien desea acceder\t" +
+                                  "1. Administrador\t" +
+                                  "2. Cliente\t");
+
+                opcion=int.Parse(Console.ReadLine());
+
+
+                switch (opcion) { 
+                
+                }
+            }while (opcion!=0);
         }
     }
 }
