@@ -24,7 +24,7 @@ namespace AlquilerVehiculos
             AñoDeFabricacion = añofabricacion;
             ValorAlquiler= valoralquiler;
             //se inicia en disponible por defecto
-            this.estado = Estado.Disponible;
+            estado = Estado.Disponible;
         }
 
         //creacion del metodo abstracto que nos permite ver la informacion del véhículo
