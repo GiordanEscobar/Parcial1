@@ -10,7 +10,7 @@ namespace AlquilerVehiculos
     public interface IGestionReservas
     {
         //se usa para reservar un vehiculo
-        void Reservar(Cliente cliente, Vehiculo vehiculo, DateTime fechainicio, int cantdias);
+        void Reservar(Vehiculo vehiculo, DateTime fechainicio, int cantdias);
 
         //se usa para devolver un vehiculo que estaba alquilado y le cambia el estado a disponible
         void Devolver(Vehiculo vehiculo);
@@ -19,7 +19,7 @@ namespace AlquilerVehiculos
         List <String>ConsultarHistorial(Vehiculo vehiculo);
 
         //para cancelar las reservas que se hayan hecho
-        bool CancelarReserva(Cliente cLiente, Vehiculo vehiculo);
+        bool CancelarReserva(Vehiculo vehiculo);
 
     }
 }
