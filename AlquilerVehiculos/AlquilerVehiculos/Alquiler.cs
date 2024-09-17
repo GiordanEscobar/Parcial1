@@ -78,6 +78,9 @@ namespace AlquilerVehiculos
                             }
                         } while (opcion!=9);
                         break;
+                    case 0:
+                        Console.WriteLine("Saliendo, gracias por usar el programa");
+                        break;
                     default:
                     break;
                 }
