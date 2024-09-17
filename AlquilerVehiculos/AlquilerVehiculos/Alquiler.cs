@@ -19,7 +19,7 @@ namespace AlquilerVehiculos
                 Console.WriteLine("Quien desea acceder\t" +
                                   "1. Administrador\t" +
                                   "2. Cliente\t");
-                opcion=int.Parse(Console.ReadLine());
+                opcion = int.Parse(Console.ReadLine());
 
 
                 switch (opcion) { 
@@ -71,10 +71,12 @@ namespace AlquilerVehiculos
                                 case 2:
                                     Console.WriteLine("devolver vehiculo");
                                     break;
-                                case 3;
+                                case 3:
                                     Console.WriteLine("Lista de vehiculos");
-                                case 4;
-                                    Console.WriteLine("Lista segun el estado")
+                                    break;
+                                case 4:
+                                    Console.WriteLine("Lista segun el estado");
+                                    break;
                                 case 9:
                                     Console.WriteLine("volviendo al menu anterior");
                                     break;
