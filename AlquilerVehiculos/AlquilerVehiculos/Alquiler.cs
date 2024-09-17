@@ -59,6 +59,8 @@ namespace AlquilerVehiculos
                             Console.WriteLine("**SECCION CLIENTE\t" +
                                 "1. Reservar vehiculo\t" +
                                 "2. Devolver vehiculo\t" +
+                                "3. Lista de vechículos\t"+
+                                "4. Lista de vehículos segun el estado en que se encuentran\t"+
                                 "9. Volver al menu anterior\t");
                             opcion=int.Parse(Console.ReadLine());
                             switch (opcion)
@@ -69,6 +71,10 @@ namespace AlquilerVehiculos
                                 case 2:
                                     Console.WriteLine("devolver vehiculo");
                                     break;
+                                case 3;
+                                    Console.WriteLine("Lista de vehiculos");
+                                case 4;
+                                    Console.WriteLine("Lista segun el estado")
                                 case 9:
                                     Console.WriteLine("volviendo al menu anterior");
                                     break;
