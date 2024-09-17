@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlquilerVehiculos
 {
-    public class ControlGestion : IGestionReservas, IGestionVehiculos
+    public class ControlGestion : IGestionVehiculos
     {
         //creamos una lista y un dictionary que nos ayudara a tener la informacion de las reservas ya que son pares clave - valor
         public List <Vehiculo> vehiculos = new List<Vehiculo>();
@@ -22,7 +22,7 @@ namespace AlquilerVehiculos
         }
         
         //listamos todos los vehiculos del sistema
-        public void ListaVehiculos (Vehiculo vehiculo)
+        public void ListaVehiculos(Vehiculo vehiculo)
         {
             if (vehiculos.Count ==0) //verificamos si la lista esta vacia
             {
@@ -37,6 +37,7 @@ namespace AlquilerVehiculos
                 vehiculos.ForEach(vehiculo => vehiculo.VerInfo());
             }
         }
+        //se usa para listar segun estados 
         public void ListarSegunEstado (Estado estado)
         {
             //hacemos una lista pra los vehiculos que deseamos ver segun su estado
@@ -79,6 +80,31 @@ namespace AlquilerVehiculos
             //eliminamos también su historial en la reserva
             historialreservas.Remove(vehiculo);
             Console.WriteLine($"{vehiculo.GetType().Name} ha sido eliminado");
+        }
+
+        public Vehiculo BuscarVehiculo(string marca, string modelo)
+        {
+            //usamos un ciclo for para para recorrer la lista de vehiculos
+            for (int i = 0; i < vehiculos.Count; i++)
+            {
+                //traemos el vehiculo actual
+                Vehiculo vehiculo = vehiculos[i];
+                //comparamos la marca y el modelo ingornando las mayusculas que el usuario o cliente pueda poner con .ToLower
+                if (vehiculo.Marca.ToLower()==marca.ToLower() && vehiculo.Modelo.ToLower()==modelo.ToLower())
+                {
+                    //si se encuentra el vehiculo mostrar la informacion y devolverlo
+                    Console.WriteLine($"El vehiculo que buscó es: {vehiculo.Marca} {vehiculo.Modelo} del año {vehiculo.AñoDeFabricacion} - Se encuentra: {vehiculo.estado}");
+                    return vehiculo;
+                }
+                //en caso que no se encuentr el vehiculo se ve un mensaje y retorna un valor null
+                Console.WriteLine("No se encontró el vehiculo");
+                return null;
+            }
+        }
+
+        public void ActualizarEstado(string marca, string modelo)
+        {
+            throw new NotImplementedException();
         }
     }
 }
