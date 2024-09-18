@@ -96,15 +96,39 @@ namespace AlquilerVehiculos
                     Console.WriteLine($"El vehiculo que buscó es: {vehiculo.Marca} {vehiculo.Modelo} del año {vehiculo.AñoDeFabricacion} - Se encuentra: {vehiculo.estado}");
                     return vehiculo;
                 }
-                //en caso que no se encuentr el vehiculo se ve un mensaje y retorna un valor null
-                Console.WriteLine("No se encontró el vehiculo");
-                return null;
             }
+            //en caso que no se encuentr el vehiculo se ve un mensaje y retorna un valor null
+            Console.WriteLine("No se encontró el vehiculo");
+            return null;
         }
-
         public void ActualizarEstado(string marca, string modelo)
         {
-            throw new NotImplementedException();
+            //usamos el metodo que definimos para buscar el vehiculo que queremos
+            Vehiculo vehiculo = BuscarVehiculo(marca, modelo);
+            //mostramos el estado en el que se encuentra el vehiculo
+            Console.WriteLine($"El estado actual es: {vehiculo.estado}");
+            //solicitamos al usuario el nuevo estado
+            Console.WriteLine("Ingrese el nuevo estado\t" +
+                "0.Disponible\t" +
+                "1.Alquilado\t" +
+                "2.Mantenimiento\t");
+            //leemos lo que digite el usuario y creamos una variable que almacena la decision del usuario
+            String opcion = Console.ReadLine();
+            //convertimos la opcion del usuario a un numero entero
+            //con una variable booleana para verificar si es valido el valor
+            bool Valido = int.TryParse(opcion, out int opcionEstado);
+            //preguntamos la condicion para actaulizar el estado
+            if (Valido && (opcionEstado >= 0 && opcionEstado<=2))
+            {
+                //aqui se convierte el numero en un estado del vehiculo
+                vehiculo.estado = (Estado)opcionEstado;
+                Console.WriteLine($"se actualizo el estado del vehiculo a:{vehiculo.estado}");
+            }
+            else
+            {
+                //se muestra un mensaje de error en caso de que el usuario ingrese una opcion equivocada
+                Console.WriteLine("Opcion Inválida");
+            }
         }
     }
 }
