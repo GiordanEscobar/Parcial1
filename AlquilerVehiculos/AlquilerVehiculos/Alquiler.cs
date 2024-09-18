@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,17 +27,28 @@ namespace AlquilerVehiculos
                     case 1:
                         do
                         {
-                            Console.WriteLine("**SECCION ADMINISTRADOR\t" +
-                                "1. Agregar nuevos vehiculos\t" +
-                                "2. Actualizar vehiculos\t" +
-                                "3. Eliminar vehiculos\t" +
-                                "9. Volver al menu anterior\t");
+                            Console.WriteLine("**SECCION ADMINISTRADOR\n" +
+                                "1. Agregar nuevos vehiculos\n" +
+                                "2. Actualizar vehiculos\n" +
+                                "3. Eliminar vehiculos\n" +
+                                "9. Volver al menu anterior\n");
                             opcion=int.Parse(Console.ReadLine());
                             switch (opcion)
                             {
                                 case 1:
-                                    Console.WriteLine("agregar");
-                                break;
+                                    Console.WriteLine("**NUEVO VEHICULO\n" +
+                                        "1. Automovil\n" +
+                                        "2. Camion\n" +
+                                        "3. Motocicleta\n" +
+                                        "9. Volver al menu anterior\n");
+                                    opcion=int.Parse(Console.ReadLine());
+                                    switch (opcion) 
+                                    {
+                                        case 1:
+                                            Automovil automovil = new Automovil();
+                                    
+                                    }
+                                    break;
                                 case 2:
                                     Console.WriteLine("actualizar vehiculo");
                                 break;
