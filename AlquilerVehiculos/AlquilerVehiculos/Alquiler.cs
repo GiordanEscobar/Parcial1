@@ -27,6 +27,8 @@ using System.Threading.Tasks;
                         case 1:
                             do
                             {
+                            //hago una instancia de la clase controlGestion
+                            ControlGestion controlGestion = new ControlGestion();   
                                 Console.WriteLine("**SECCION ADMINISTRADOR\n" +
                                     "1. Agregar nuevos vehiculos\n" +
                                     "2. Actualizar vehiculos\n" +
@@ -36,29 +38,77 @@ using System.Threading.Tasks;
                                 switch (opcion)
                                 {
                                     case 1:
+                                    //hacemos el submenu oara el tipo de vehiculo
                                         Console.WriteLine("**NUEVO VEHICULO\n" +
                                             "1. Automovil\n" +
                                             "2. Camion\n" +
                                             "3. Motocicleta\n" +
                                             "9. Volver al menu anterior\n");
                                         opcion=int.Parse(Console.ReadLine());
-                                        switch (opcion) 
+                                    if (opcion == 9) break;
+                                    Console.WriteLine("Ingrese la marca del vehículo:");
+                                    string marca = Console.ReadLine();
+
+                                    Console.WriteLine("Ingrese el modelo del vehículo:");
+                                    string modelo = Console.ReadLine();
+
+                                    Console.WriteLine("Ingrese el año de fabricación:");
+                                    int añoFabricacion = int.Parse(Console.ReadLine());
+
+                                    Vehiculo nuevoVehiculo = null;
+                                    switch (opcion) 
                                         {
+
                                             case 1:
-                                            Automovil automovil = new Automovil();
+                                            nuevoVehiculo = new Automovil(marca,modelo,añoFabricacion);
+                                            break;
+
+                                            case 2:
+                                            nuevoVehiculo = new Camion(marca, modelo, añoFabricacion);
+                                            break;
+
+                                            case 3:
+                                            nuevoVehiculo = new Motocicleta(marca, modelo, añoFabricacion);
+                                            break;
+
+                                        default:
+                                            Console.WriteLine("Opcion no valida");
+
+                                            break;
                                         }
+                                    if (nuevoVehiculo != null)
+                                    {
+                                        controlGestion.RegistrarVehiculo(nuevoVehiculo);
+                                    }
                                     break;
                                     case 2:
-                                        Console.WriteLine("actualizar vehiculo");
+                                        Console.WriteLine("Ingrese la Marca para actualizar:");
+                                        String actualizarMarca = Console.ReadLine();
+
+                                        Console.WriteLine("Ingrese el modelo para actualizar:");
+                                        String actualizarModelo = Console.ReadLine();
+
+                                        controlGestion.ActualizarEstado(actualizarMarca,actualizarModelo);
                                     break;
+
                                     case 3:
-                                        Console.WriteLine("eliminar vehiculo");
-                                        break;
+                                        Console.WriteLine("Ingrese la marca para eliminar:");
+                                        String eliminarMarca = Console.ReadLine();
+
+                                        Console.WriteLine("Ingrese el modelo para eliminar:");
+                                        String eliminarModelo = Console.ReadLine();
+
+                                        Vehiculo eliminarVehiculo = controlGestion.BuscarVehiculo(eliminarMarca, eliminarModelo);
+                                        if(eliminarVehiculo != null)
+                                        {
+                                            controlGestion.EliminarVehiculo(eliminarVehiculo);
+                                        }
+                                    break;
                                     case 9:
                                         Console.WriteLine("volviendo al menu anterior");
                                         break;
                                     default:
-                                        Console.WriteLine("opcion no valida");
+                                        Console.WriteLine("opcion no valida, vuelva a intentarlo");
                                         break;
                                 }
                             } while (opcion!=9);
