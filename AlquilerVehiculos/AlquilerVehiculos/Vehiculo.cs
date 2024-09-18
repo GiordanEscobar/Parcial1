@@ -17,12 +17,11 @@ namespace AlquilerVehiculos
         //variable de tipo Estado para gestionar la disponibilidad del vehiculo
         public Estado estado { get; set; }
          
-        public Vehiculo(String marca, String modelo, int añofabricacion, double valoralquiler)
+        public Vehiculo(String marca, String modelo, int añofabricacion)
         {
             Marca= marca;
             Modelo= modelo;
             AñoDeFabricacion = añofabricacion;
-            ValorAlquiler= valoralquiler;
             //se inicia en disponible por defecto
             estado = Estado.Disponible;
         }

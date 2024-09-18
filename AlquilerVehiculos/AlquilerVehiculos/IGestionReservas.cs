@@ -10,16 +10,13 @@ namespace AlquilerVehiculos
     public interface IGestionReservas
     {
         //se usa para reservar un vehiculo
-        void Reservar(Vehiculo vehiculo, DateTime fechainicio, int cantdias);
+        void Reservar();
 
         //se usa para devolver un vehiculo que estaba alquilado y le cambia el estado a disponible
-        void Devolver(Vehiculo vehiculo);
+        void Devolver();
 
         //se usa para consultar la lista que contiene el historial de reservas de un vehiculo
-        List <String>ConsultarHistorial(Vehiculo vehiculo);
-
-        //para cancelar las reservas que se hayan hecho
-        bool CancelarReserva(Vehiculo vehiculo);
+        void ConsultarHistorial();
 
     }
 }
