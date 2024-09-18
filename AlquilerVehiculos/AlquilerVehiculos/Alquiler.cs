@@ -63,47 +63,70 @@ using System.Threading.Tasks;
                                 }
                             } while (opcion!=9);
 
-                        break;
-                        case 2:
-                            do
+                    break;
+                    case 2:
+                        Reservas reservas = new Reservas();
+                        ControlGestion cgestion = new ControlGestion();
+                        do
+                        {
+                            Console.WriteLine("**SECCION CLIENTE\t" +
+                                "1. Reservar vehiculo\t" +
+                                "2. Devolver vehiculo\t" +
+                                "3. Lista de vechículos\t"+
+                                "4. Lista de vehículos segun el estado en que se encuentran\t"+
+                                "9. Volver al menu anterior\t");
+                            opcion=int.Parse(Console.ReadLine());
+                            switch (opcion)
                             {
-                                Console.WriteLine("**SECCION CLIENTE\t" +
-                                    "1. Reservar vehiculo\t" +
-                                    "2. Devolver vehiculo\t" +
-                                    "3. Lista de vechículos\t"+
-                                    "4. Lista de vehículos segun el estado en que se encuentran\t"+
-                                    "9. Volver al menu anterior\t");
-                                opcion=int.Parse(Console.ReadLine());
-                                switch (opcion)
-                                {
-                                    case 1:
-                                        Console.WriteLine("reservar");
-                                        break;
-                                    case 2:
-                                        Console.WriteLine("devolver vehiculo");
-                                        break;
-                                    case 3:
-                                        Console.WriteLine("Lista de vehiculos");
-                                        break;
-                                    case 4:
-                                        Console.WriteLine("Lista segun el estado");
-                                        break;
-                                    case 9:
-                                        Console.WriteLine("volviendo al menu anterior");
-                                        break;
-                                    default:
-                                        Console.WriteLine("opcion no valida");
-                                        break;
-                                }
-                            } while (opcion!=9);
-                            break;
-                        case 0:
-                            Console.WriteLine("Saliendo, gracias por usar el programa");
-                            break;
-                        default:
+                                case 1:
+                                    reservas.Reservar();
+                                    break;
+                                case 2:
+                                    reservas.Devolver();
+                                    break;
+                                case 3:
+                                    cgestion.ListaVehiculos();
+                                    break;
+                                case 4:
+                                    Console.WriteLine("Ingrese el estado que desea consultar 0.Disponible 1.Alquilado 2.Mantenimiento");
+                                    int respuesta = int.Parse(Console.ReadLine());
+                                    Estado estado;
+                                    if (respuesta==0)
+                                    {
+                                        estado=Estado.Disponible;
+                                        cgestion.ListarSegunEstado(estado);
+                                    }
+                                    else if (respuesta==1)
+                                    {
+                                        estado= Estado.Alquilado;
+                                        cgestion.ListarSegunEstado(estado);
+                                    }
+                                    else if (respuesta==2)
+                                    {
+                                        estado= Estado.Mantenimiento;
+                                        cgestion.ListarSegunEstado(estado);
+                                    }
+                                    else 
+                                    {
+                                        Console.WriteLine("Opcion no valida");
+                                    }
+                                    break;
+                                case 9:
+                                    Console.WriteLine("volviendo al menu anterior");
+                                    break;
+                                default:
+                                    Console.WriteLine("opcion no valida");
+                                    break;
+                            }
+                        } while (opcion!=9);
                         break;
-                    }
-                }while (opcion!=0);
-            }
+                    case 0:
+                        Console.WriteLine("Saliendo, gracias por usar el programa");
+                        break;
+                    default:
+                    break;
+                }
+            }while (opcion!=0);
         }
     }
+}

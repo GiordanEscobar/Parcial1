@@ -22,7 +22,7 @@ namespace AlquilerVehiculos
         }
         
         //listamos todos los vehiculos del sistema
-        public void ListaVehiculos(Vehiculo vehiculo)
+        public void ListaVehiculos()
         {
             if (vehiculos.Count ==0) //verificamos si la lista esta vacia
             {
