@@ -20,7 +20,7 @@ namespace AlquilerVehiculos
         //creamos dos metodos uno para listar todos los vehiculos y otro segun su estado
 
         void ListarSegunEstado(Estado estado);
-        void ListaVehiculos(Vehiculo vehiculo);
+        void ListaVehiculos();
 
         //se usa para actualizar los estados de los vehiculos
         void ActualizarEstado(String marca, String modelo);

@@ -66,6 +66,8 @@ namespace AlquilerVehiculos
 
                     break;
                     case 2:
+                        Reservas reservas = new Reservas();
+                        ControlGestion cgestion = new ControlGestion();
                         do
                         {
                             Console.WriteLine("**SECCION CLIENTE\t" +
@@ -78,16 +80,37 @@ namespace AlquilerVehiculos
                             switch (opcion)
                             {
                                 case 1:
-                                    Console.WriteLine("reservar");
+                                    reservas.Reservar();
                                     break;
                                 case 2:
-                                    Console.WriteLine("devolver vehiculo");
+                                    reservas.Devolver();
                                     break;
                                 case 3:
-                                    Console.WriteLine("Lista de vehiculos");
+                                    cgestion.ListaVehiculos();
                                     break;
                                 case 4:
-                                    Console.WriteLine("Lista segun el estado");
+                                    Console.WriteLine("Ingrese el estado que desea consultar 0.Disponible 1.Alquilado 2.Mantenimiento");
+                                    int respuesta = int.Parse(Console.ReadLine());
+                                    Estado estado;
+                                    if (respuesta==0)
+                                    {
+                                        estado=Estado.Disponible;
+                                        cgestion.ListarSegunEstado(estado);
+                                    }
+                                    else if (respuesta==1)
+                                    {
+                                        estado= Estado.Alquilado;
+                                        cgestion.ListarSegunEstado(estado);
+                                    }
+                                    else if (respuesta==2)
+                                    {
+                                        estado= Estado.Mantenimiento;
+                                        cgestion.ListarSegunEstado(estado);
+                                    }
+                                    else 
+                                    {
+                                        Console.WriteLine("Opcion no valida");
+                                    }
                                     break;
                                 case 9:
                                     Console.WriteLine("volviendo al menu anterior");
