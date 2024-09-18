@@ -5,80 +5,63 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlquilerVehiculos
-{
-    //creacion de la clase principal
-
-    public class Alquiler
+    namespace AlquilerVehiculos
     {
-        public static void Main(string[] args)
+        //creacion de la clase principal
+
+        public class Alquiler
         {
-            Console.Write("****ALQUILER****");
-            int opcion = 0;
-            do
+            public static void Main(string[] args)
             {
-                Console.WriteLine("Quien desea acceder\t" +
-                                  "1. Administrador\t" +
-                                  "2. Cliente\t");
-                opcion = int.Parse(Console.ReadLine());
+                Console.Write("****ALQUILER****");
+                int opcion = 0;
+                do
+                {
+                    Console.WriteLine("Quien desea acceder\t" +
+                                      "1. Administrador\t" +
+                                      "2. Cliente\t");
+                    opcion = int.Parse(Console.ReadLine());
 
 
-                switch (opcion) { 
-                    case 1:
-                        do
-                        {
-                            Console.WriteLine("**SECCION ADMINISTRADOR\n" +
-                                "1. Agregar nuevos vehiculos\n" +
-                                "2. Actualizar vehiculos\n" +
-                                "3. Eliminar vehiculos\n" +
-                                "9. Volver al menu anterior\n");
-                            opcion=int.Parse(Console.ReadLine());
-                            switch (opcion)
+                    switch (opcion) { 
+                        case 1:
+                            do
                             {
-
-                                case 1:
-                                    Console.WriteLine("Ingrese la placa del vehiculo: ");
-                                    var marca = Console.ReadLine();
-                                    Console.WriteLine("Ingrese el modelo del vehiculo: ");
-                                    var modelo = Console.ReadLine();
-                                    Console.WriteLine("Ingrese el año de fabricación del vehiculo: ");
-                                    int aniofabricacion = int.Parse(Console.ReadLine());
-                                    Console.WriteLine("**Que tipo de vehiculo se esta registrando\n" +
-                                        "1. Automovil\n" +
-                                        "2. Camion\n" +
-                                        "3. Motocicleta\n" +
-                                        "9. Volver al menu anterior\n");
-                                    opcion=int.Parse(Console.ReadLine());
-                                    switch (opcion) 
-                                    {
-                                        case 1:
-                                            Automovil automovil = new Automovil(marca,modelo, aniofabricacion);
-                                            break;
-                                        case 2:
-                                            Motocicleta motocicleta = new Motocicleta(marca, modelo, aniofabricacion);
-                                            break;
-                                        case 3:
-                                            Camion camion = new Camion(marca, modelo, aniofabricacion);
-                                            break;
-                                        case 9:
-                                            Console.WriteLine("volviendo al menu anterior");
-                                            break;
-                                    }
+                                Console.WriteLine("**SECCION ADMINISTRADOR\n" +
+                                    "1. Agregar nuevos vehiculos\n" +
+                                    "2. Actualizar vehiculos\n" +
+                                    "3. Eliminar vehiculos\n" +
+                                    "9. Volver al menu anterior\n");
+                                opcion=int.Parse(Console.ReadLine());
+                                switch (opcion)
+                                {
+                                    case 1:
+                                        Console.WriteLine("**NUEVO VEHICULO\n" +
+                                            "1. Automovil\n" +
+                                            "2. Camion\n" +
+                                            "3. Motocicleta\n" +
+                                            "9. Volver al menu anterior\n");
+                                        opcion=int.Parse(Console.ReadLine());
+                                        switch (opcion) 
+                                        {
+                                            case 1:
+                                            Automovil automovil = new Automovil();
+                                        }
                                     break;
-                                case 2:
-                                    Console.WriteLine("actualizar vehiculo");
-                                break;
-                                case 3:
-                                    Console.WriteLine("eliminar vehiculo");
+                                    case 2:
+                                        Console.WriteLine("actualizar vehiculo");
                                     break;
-                                case 9:
-                                    Console.WriteLine("volviendo al menu anterior");
-                                    break;
-                                default:
-                                    Console.WriteLine("opcion no valida");
-                                    break;
-                            }
-                        } while (opcion!=9);
+                                    case 3:
+                                        Console.WriteLine("eliminar vehiculo");
+                                        break;
+                                    case 9:
+                                        Console.WriteLine("volviendo al menu anterior");
+                                        break;
+                                    default:
+                                        Console.WriteLine("opcion no valida");
+                                        break;
+                                }
+                            } while (opcion!=9);
 
                     break;
                     case 2:
