@@ -86,10 +86,10 @@ namespace AlquilerVehiculos
             }
             else
             {
-                Console.WriteLine("Ingrese la placa del vehiculo que desea reservar: ");
-                var marca = Console.ReadLine();
-                Console.WriteLine("Ingrese la placa del vehiculo que desea reservar: ");
-                var modelo = Console.ReadLine();
+                Console.WriteLine("Ingrese la marca del vehiculo que desea reservar: ");
+                string marca = Console.ReadLine();
+                Console.WriteLine("Ingrese el modelo del vehiculo que desea reservar: ");
+                string modelo = Console.ReadLine();
                 Vehiculo objvehiculo = cgestion.BuscarVehiculo(marca, modelo);
                 if (objvehiculo!=null)
                 {

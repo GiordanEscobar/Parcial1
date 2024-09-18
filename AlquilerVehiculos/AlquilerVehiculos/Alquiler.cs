@@ -17,9 +17,10 @@ using System.Threading.Tasks;
                 int opcion = 0;
                 do
                 {
-                    Console.WriteLine("Quien desea acceder\t" +
-                                      "1. Administrador\t" +
-                                      "2. Cliente\t");
+                    Console.WriteLine("Quien desea acceder\n" +
+                                      "1. Administrador\n" +
+                                      "2. Cliente\n"+
+                                      "0. salir");
                     opcion = int.Parse(Console.ReadLine());
 
 
