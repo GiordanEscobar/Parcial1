@@ -35,8 +35,15 @@ namespace AlquilerVehiculos
                             opcion=int.Parse(Console.ReadLine());
                             switch (opcion)
                             {
+
                                 case 1:
-                                    Console.WriteLine("**NUEVO VEHICULO\n" +
+                                    Console.WriteLine("Ingrese la placa del vehiculo: ");
+                                    var marca = Console.ReadLine();
+                                    Console.WriteLine("Ingrese el modelo del vehiculo: ");
+                                    var modelo = Console.ReadLine();
+                                    Console.WriteLine("Ingrese el año de fabricación del vehiculo: ");
+                                    int aniofabricacion = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("**Que tipo de vehiculo se esta registrando\n" +
                                         "1. Automovil\n" +
                                         "2. Camion\n" +
                                         "3. Motocicleta\n" +
@@ -45,8 +52,17 @@ namespace AlquilerVehiculos
                                     switch (opcion) 
                                     {
                                         case 1:
-                                            Automovil automovil = new Automovil();
-                                    
+                                            Automovil automovil = new Automovil(marca,modelo, aniofabricacion);
+                                            break;
+                                        case 2:
+                                            Motocicleta motocicleta = new Motocicleta(marca, modelo, aniofabricacion);
+                                            break;
+                                        case 3:
+                                            Camion camion = new Camion(marca, modelo, aniofabricacion);
+                                            break;
+                                        case 9:
+                                            Console.WriteLine("volviendo al menu anterior");
+                                            break;
                                     }
                                     break;
                                 case 2:
