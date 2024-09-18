@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlquilerVehiculos
 {
-    internal class Camion : Vehiculo
+    public class Camion : Vehiculo
     {
         
         public Camion(String marca, String modelo, int añofabricacion) : base(marca, modelo, añofabricacion) {
